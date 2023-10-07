@@ -1,0 +1,197 @@
+<html>
+  <head>
+      <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>URLST</title>
+  <meta name="author" content="URLST">
+  <meta name="keywords" content="HTML,CSS,JavaScript"">
+  <meta name ="revised" content ="07/10/2023" >
+  
+  <meta name="description" content="Free url shortener ">
+  <link rel="stylesheet" href="https://twwaza.github.io/jy/home/nav_bar.cs" integrity="sha384-5GfQ7cyOamNNZs/SgQrHz30sbEbQhRtUR7z5NHW5VHRJJksJ8ALV7FHm9mPwIkVu" crossorigin="anonymous"></link>
+     
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>
+
+    <link>
+  </head>
+  <body>
+    <!--   <nav class="navbar fixed-top bg-??" style="background-color: #6750A4;" data-bs-theme="dark">
+  <div class="container-fluid">
+    <a class="navbar-brand" href="#">URLST</a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarText" aria-controls="navbarText" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarText">
+      <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+        <li class="nav-item">
+          <a class="nav-link active" aria-current="page" href="#">Home</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="https://fnetvpn-th.click/admin-h1">ဆက်သွယ်ရန်</a>
+        </li>
+       
+      </ul>
+    
+    </div>
+  </div>
+</nav> -->
+      <div class="jumbotron char char1">
+  <h1>URL Shortener Service</h1> 
+  <p>Made by <a href="#" target="_blank">JORYYUI</a></p>
+</div>
+
+<div class="g1"
+    <h1 class="message">Shorten your first link!</h1>
+    
+      <div class="char">
+          
+         
+          <input name="text" type="url" value  id="linkinput" placeholder="Paste a URL to shorten" class="form-control g1">
+          
+          <input class="button char" type="submit" id="myinput" value="Shorten">
+      </div>
+    
+    <p class="char" id="message"></p>
+    
+    <style>
+       
+    
+     .jumbotron {
+  padding: 1em;
+  background: linear-gradient(
+          to right,
+          #49dba5,
+          #7b55ff
+        ); /* Adjust the colors as needed */
+  
+  border-bottom: thick solid rgba(28, 130, 140, 0.5);
+  color: #FFFFFF;
+}
+
+h4 {
+  color: #8C8A7E;
+}
+
+
+a:hover {
+  color: #1C828C;
+  text-decoration: none;
+}
+a {
+  color: #ffbd40;
+}
+#output{
+  padding-bottom: 3em;
+}
+
+div.g1 {
+  margin: 10px;
+  
+}
+
+.button {
+  background-color: #49dba5;
+  border-radius: 10px;
+  border: none;
+  color: white;
+  width: none;
+  height: ;
+  padding: 10px 30;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  
+  cursor: pointer;
+}
+
+.button:hover {
+background-color: #329772;
+  border-color: #329772;
+  color: #ffffff;
+}
+
+.char{
+    margin-Top: 6px;
+}
+
+.char1{
+    margin-Top: 0px;
+}
+
+.navbar {
+        background: linear-gradient(
+          to right,
+          #49dba5,
+          #7b55ff
+        ); /* Adjust the colors as needed */
+  }
+  
+.nav {
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+    height: 65px;
+    box-shadow: 0 0 3px rgba(0, 0, 0, 0.2);
+    background-color: #ffffff;
+    display: flex;
+    overflow-x: auto;
+}
+
+.nav__link {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    flex-grow: 1;
+    min-width: 50px;
+    overflow: hidden;
+    white-space: nowrap;
+    font-family: sans-serif;
+    font-size: 13px;
+    color: #444444;
+    text-decoration: none;
+    -webkit-tap-highlight-color: transparent;
+    transition: background-color 0.1s ease-in-out;
+}
+
+.nav__link:hover {
+    background-color: #00000000;
+    color: #6750A4;
+}
+
+.nav__link--active {
+    color: #6750A4;
+}
+
+.nav__icon {
+    font-size: 18px;
+}
+    </style>
+ <script>
+document.getElementById("myinput").onclick = function() {
+  var link = document.getElementById("linkinput").value;
+  var data = {
+    "domain":"urlst.click",
+    "originalURL": link,
+    "allowDuplicates":false }; 
+ fetch('https://api.short.cm/links/public', {
+    method: 'post',
+    headers: {
+      'accept': 'application/json',
+      'Content-Type': 'application/json',
+      'authorization': 'pk_yrCeIm4flmLUO0gA'
+    },
+    body: JSON.stringify(data)
+  }) .then(function(response) {
+        return response.json();
+    }) 
+    .then(function(data){ 
+    document.getElementById("message").innerHTML = "Your short link is " + data.shortURL })
+    document.getElementById("linkinput").value='';
+ }
+    </script>
+  </body>
+</html>
