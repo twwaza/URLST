@@ -1,69 +1,225 @@
 <html>
-<center>
 <head>
-<title>Ryder Cragie - Link Generator</title>
-<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-<link>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>URL Shortener</title>
+  <meta name="author" content="URLST">
+  <meta name="keywords" content="HTML,CSS,JavaScript"">
+  <meta name ="revised" content ="07/10/2023" >
+  <meta name="description" content="Free url shortener ">
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>
+
+<script src="../VW1L_4hNgKB4nxXiQFDPxXRBkpw.js"></script><style>
+        @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400&display=swap');
+
+        body{
+            font-family: 'Roboto', sans-serif;
+            font-size: 15px;
+            padding: 0;
+            margin: 0;
+            display: flex;
+            
+            height: 100vh;
+            transition: background-color 0.5s;
+        }
+
+        body, div.container {
+            
+            color: black;
+        }
+
+        @media (prefers-color-scheme: dark) {
+            body, div.container {
+                background-color: #222;
+                color: white;
+            }
+        }
+
+        div.container {
+            text-align: center;
+            width: auto;
+            max-width: 600px;
+            padding: px;
+            border-radius: 10px;
+            box-shadow: 0px 8px 15px rgba(0,0,0,0.1);
+        }
+
+div.container1 {
+            text-align: center;
+            width: auto;
+            max-width: 600px;
+            padding: 15px;
+            border-radius: 10px;
+            box-shadow: 0px 8px 15px rgba(0,0,0,0.1);
+        }
+
+        input[type="url"] {
+            padding: 10px;
+            width: 100%;
+            margin-bottom: 10px;
+            border-radius: 10px;
+            border: 1px solid #ccc;
+        }
+
+        button {
+  background-color: #49dba5;
+  border-radius: 10px;
+  border: none;
+  color: white;
+  width: none;
+  height: ;
+  padding: 15px 18;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  
+  cursor: pointer;
+}
+        button:hover {
+background-color: #329772;
+  border-color: #329772;
+  color: #ffffff;
+}
+
+
+        p#message {
+            margin-top: 20px;
+        }
+
+        p#message a {
+            color: #20bf55;
+            text-decoration: none;  /* Remove underline from generated link */
+            border-radius: 10px;
+        }
+
+        p.website {
+            margin-top: 20px;
+            font-size: 12px;
+            color: 20bf55;
+        }
+
+        p.website a:link,
+        p.website a:visited {
+            color: inherit;
+            text-decoration: none;
+        }
+
+        p.error {
+            margin-top: 10px;
+            color: #ff6961;   /* The error message will be red in both light and dark modes */
+        }
+        
+        .jumbotron {
+  padding: 2em;
+  background: linear-gradient(
+          to right,
+          #49dba5,
+          #7b55ff
+        ); /* Adjust the colors as needed */
+  
+  border-bottom: thick solid rgba(28, 130, 140, 0.5);
+  color: #FFFFFF;
+}
+button.g1 {
+  margin: 5px;
+}
+    </style>
 </head>
+<body>
+    
+<div class="container">
+    
+  <div class="jumbotron">
+  <h1>URL Shortener Service</h1> 
+  <p>Made by <a href="https://www.facebook.com/taknds65?mibextid=ZbWKwL" target="_blank">JORYYUI</a></p>
+</div>
+
+<div class="container1">
+<div>
+<input name="text" type="url" id="linkinput" placeholder="Paste or type a URL to shorten">
+<button id="myinput">Shorten URL</button>
+<p id="error" class="error"></p>
+</div>
+
+<div id="message"></div>
+<!--  <p>Made by <a href="#" target="_blank" class="website">JORYYUI</a></p> -->
+</div>
+</div>
+
 <style>
-@import url(https://fonts.googleapis.com/css2?family=Roboto:wght@400&display=swap);
-body{
-font-family: 'Roboto', sans-serif;
-font-size: 3vw;
-scrolling: no;
-overflow: hidden;
-}
-/* desktop styles */
-@media screen and (min-width: 600px) {
-body {
-font-size: 20px;
-font-weight: 400;
-}
-}
-.text-vertical-center{
-width: 100%;
-height: 100vh;
-display: table-cell;
-vertical-align: middle;
-padding-right:20px;
-padding-left:20px
-}
-:root {
-color-scheme: light dark;
+     a {
+  text-decoration: none;
+  color: #20bf55;
+  font-size: #;
 }
 </style>
-<body>
-<div class="text-vertical-center">
-<h1 class="message">Shorten your first link!</h1>
-<div>
-<input name="text" type="url" value id="linkinput" placeholder="Paste or type a URL to shorten." size="25">
-<input type="submit" id="myinput" value="Shorten">
-</div>
-<p id="message"></p>
-<script>
-document.getElementById("myinput").onclick = function() {
-var link = document.getElementById("linkinput").value;
-var data = {
-"domain":"api.urlst.click",
-"originalURL": link,
-"allowDuplicates":false };
-fetch('https://api.short.cm/links/public', {
-method: 'post',
-headers: {
-'accept': 'application/json',
-'Content-Type': 'application/json',
-'authorization': 'pk_Z8BGi60Zy7bZnNyE'
-},
-body: JSON.stringify(data)
-}) .then(function(response) {
-return response.json();
-})
-.then(function(data){
-document.getElementById("message").innerHTML = "Your short link is " + data.shortURL })
-document.getElementById("linkinput").value='';
-}
+
+<script nonce="MzMxNjg1MDY1LDM5MTIwMzAyMTc=" type="c29a8ecd52e7fd1e8d054d0d-text/javascript">
+    const input = document.getElementById('linkinput');
+    const button = document.getElementById('myinput');
+    const message = document.getElementById('message');
+    const error = document.getElementById('error');
+
+    const shortenLink = () => {
+        const link = input.value;
+        if (!link) {
+            error.textContent = 'Please enter a URL.';
+            return;
+        }
+        error.textContent = '';
+        
+        const data = {
+            domain: 'api.urlst.click',
+            originalURL: link,
+            allowDuplicates: false
+        };
+
+        fetch('https://api.short.cm/links/public', {
+            method: 'post',
+            headers: {
+                accept: 'application/json',
+                'Content-Type': 'application/json',
+                authorization: 'pk_Z8BGi60Zy7bZnNyE'
+            },
+            body: JSON.stringify(data)
+        })
+            .then(response => response.json())
+            .then(data => {
+                const shortUrl = data.shortURL.replace('https://', '');
+                message.innerHTML = 'Your short link has been created: ' +
+                    `<a href="https://${shortUrl}" id="shortUrl">${shortUrl}</a>` +
+                    `<button class="g1" id="copyBtn" onclick="copyUrl()">Copy</button>`;
+                input.value = '';
+            });
+    };
+
+    button.addEventListener('click', shortenLink);
+    input.addEventListener('keydown', (event) => {
+        if (event.key === 'Enter') {
+            shortenLink();
+            event.preventDefault();
+        }
+    });
+
+    function copyUrl() {
+        var copyText = document.getElementById("shortUrl");
+        var textArea = document.createElement("textarea");
+        textArea.value = copyText.textContent;
+        document.body.appendChild(textArea);
+        textArea.select();
+        document.execCommand("Copy");
+        textArea.remove();
+        alert("Link copied to clipboard!");
+    }
 </script>
-<p> URL shortener by Ryder Cragie.</p>
-</div>
+
+<script src="../loader.min.json" data-cf-settings="c29a8ecd52e7fd1e8d054d0d-|49" defer></script>
+
+<script>(function(){var js = "window['__CF$cv$params']={r:'812779f91a2e9e2c',t:'MTY5NjY5NTY3OC45MDMwMDA='};_cpo=document.createElement('script');_cpo.nonce='',_cpo.src='/cdn-cgi/challenge-platform/scripts/jsd/main.js',document.getElementsByTagName('head')[0].appendChild(_cpo);";var _0xh = document.createElement('iframe');_0xh.height = 1;_0xh.width = 1;_0xh.style.position = 'absolute';_0xh.style.top = 0;_0xh.style.left = 0;_0xh.style.border = 'none';_0xh.style.visibility = 'hidden';document.body.appendChild(_0xh);function handler() {var _0xi = _0xh.contentDocument || _0xh.contentWindow.document;if (_0xi) {var _0xj = _0xi.createElement('script');_0xj.innerHTML = js;_0xi.getElementsByTagName('head')[0].appendChild(_0xj);}}if (document.readyState !== 'loading') {handler();} else if (window.addEventListener) {document.addEventListener('DOMContentLoaded', handler);} else {var prev = document.onreadystatechange || function () {};document.onreadystatechange = function (e) {prev(e);if (document.readyState !== 'loading') {document.onreadystatechange = prev;handler();}};}})();</script>
+
+<script defer src="https://static.cloudflareinsights.com/beacon.min.js/v8b253dfea2ab4077af8c6f58422dfbfd1689876627854" integrity="sha512-bjgnUKX4azu3dLTVtie9u6TKqgx29RBwfj3QXYt5EKfWM/9hPSAI/4qcV5NACjwAo8UtTeWefx6Zq5PHcMm7Tg==" data-cf-beacon='{"rayId":"812779f91a2e9e2c","version":"2023.8.0","r":1,"token":"6affb209d8b1428cae3ed1924f544efc","si":100}' crossorigin="anonymous"></script>
+
 </body>
 </html>
