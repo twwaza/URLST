@@ -1,42 +1,69 @@
 <html>
-  <head>
-    <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>URLST</title>
-  <meta name="author" content="URLST">
-  <meta name="keywords" content="HTML,CSS,JavaScript"">
-  <meta name ="revised" content ="07/10/2023" >
-    <link>
-  </head>
-  <body>
-    <h1 class="message">Shorten your first link!</h1>
-      <div>
-          <input name="text" type="url" value  id="linkinput" placeholder="Paste a URL to shorten" >
-          <input type="submit" id="myinput" value="Shorten">
-      </div>
-    <p id="message"></p>
- <script>
+<center>
+<head>
+<title>Ryder Cragie - Link Generator</title>
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+<link>
+</head>
+<style>
+@import url(https://fonts.googleapis.com/css2?family=Roboto:wght@400&display=swap);
+body{
+font-family: 'Roboto', sans-serif;
+font-size: 3vw;
+scrolling: no;
+overflow: hidden;
+}
+/* desktop styles */
+@media screen and (min-width: 600px) {
+body {
+font-size: 20px;
+font-weight: 400;
+}
+}
+.text-vertical-center{
+width: 100%;
+height: 100vh;
+display: table-cell;
+vertical-align: middle;
+padding-right:20px;
+padding-left:20px
+}
+:root {
+color-scheme: light dark;
+}
+</style>
+<body>
+<div class="text-vertical-center">
+<h1 class="message">Shorten your first link!</h1>
+<div>
+<input name="text" type="url" value id="linkinput" placeholder="Paste or type a URL to shorten." size="25">
+<input type="submit" id="myinput" value="Shorten">
+</div>
+<p id="message"></p>
+<script>
 document.getElementById("myinput").onclick = function() {
-  var link = document.getElementById("linkinput").value;
-  var data = {
-    "domain":"api.urlst.click",
-    "originalURL": link,
-    "allowDuplicates":false }; 
- fetch('https://api.short.cm/links/public', {
-    method: 'post',
-    headers: {
-      'accept': 'application/json',
-      'Content-Type': 'application/json',
-      'authorization': 'pk_Z8BGi60Zy7bZnNyE'
-    },
-    body: JSON.stringify(data)
-  }) .then(function(response) {
-        return response.json();
-    }) 
-    .then(function(data){ 
-    document.getElementById("message").innerHTML = "Your short link is " + data.shortURL })
-    document.getElementById("linkinput").value='';
- }
-    </script>
-  </body>
+var link = document.getElementById("linkinput").value;
+var data = {
+"domain":"api.urlst.click",
+"originalURL": link,
+"allowDuplicates":false };
+fetch('https://api.short.cm/links/public', {
+method: 'post',
+headers: {
+'accept': 'application/json',
+'Content-Type': 'application/json',
+'authorization': 'pk_Z8BGi60Zy7bZnNyE'
+},
+body: JSON.stringify(data)
+}) .then(function(response) {
+return response.json();
+})
+.then(function(data){
+document.getElementById("message").innerHTML = "Your short link is " + data.shortURL })
+document.getElementById("linkinput").value='';
+}
+</script>
+<p> URL shortener by Ryder Cragie.</p>
+</div>
+</body>
 </html>
